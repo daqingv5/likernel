@@ -1,0 +1,24 @@
+{{!< default}}
+
+<article>
+{{#post}}
+    
+    <div class="banner">
+        <h1 class="post-title"><small>{{title}}</small></h1>
+        <time class="post-time">{{date format="YYYY MMMM DD"}}</time><br>
+        <span class="post-tag">{{tags prefix="" separator=" "}}</span>
+    </div>
+
+    <section class="post-container">
+        
+        <article class="post-content" id="post">
+            {{content}}
+        </article>
+        <div class="post-toc">
+            {{> "toc"}}
+        </div>
+        
+    </section>
+
+{{/post}}
+</article>

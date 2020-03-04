@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{asset "css/style.css"}}">
+    <link rel="stylesheet" href="{{asset "css/tomorrow.css"}}">
+    {{!-- <link rel="stylesheet" href="{{asset "css/toc.css"}}"> --}}
+
+    
+</head>
+<body>
+    {{> "nav"}}
+    {{!子模板的内容将替换body}}
+    {{{body}}}
+
+    {{> "footer"}}
+
+</body>
+<script src="{{asset "js/iconfont.js"}}"></script>
+<script src="{{asset "js/toc.min.js"}}"></script>
+<script src="{{asset "js/highlight.pack.js"}}"></script>
+<script src="//lib.baomitu.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="//lib.baomitu.com/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="{{asset "js/jquery.tocify.min.js"}}"></script>
+
+
+
+<script >hljs.initHighlightingOnLoad();</script>
+{{!-- <script>
+    var container = document.querySelector('#toc');
+    var toc = initTOC({
+        selector: 'h2, h3, h4, h5, h6',
+        scope: '#post',
+        overwrite: false,
+        prefix: 'toc'
+    });
+    container.appendChild(toc);
+</script> --}}
+<script>
+        $("#toc").tocify({
+            selectors: "h2, h3", // 选择要筛选的标题
+            extendPage: false, // 页面不够长时拉长页面，这里选择关闭因为感觉留出大片空白不好看- -
+            highlightDefault: true // 自动高亮第一条
+        });
+        var toc = $('#toc');
+        var tocHieght = toc.height() ;
+
+</script>
+
+</html>
